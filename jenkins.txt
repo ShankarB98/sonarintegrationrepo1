@@ -1,8 +1,8 @@
 pipeline{
     agent any
     parameters {
-        Sring defaultValue : 'edge' , description:'select browser',name='browser',trim: false 
-      //string defaultValue : 'local',description:'select platform',name='platform',trim: false
+        String defaultValue : 'edge' , description:'select browser',name='browser',trim: false 
+        String defaultValue : 'local',description:'select platform',name='platform',trim: false
         
         tools{
             
