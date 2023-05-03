@@ -2,7 +2,7 @@ pipeline{
     agent any
     parameters {
         String defaultValue : 'edge' , description:'select browser',name='browser',trim: false 
-        String defaultValue : 'local',description:'select platform',name='platform',trim: false
+       // String defaultValue : 'local',description:'select platform',name='platform',trim: false
         
         tools{
             
