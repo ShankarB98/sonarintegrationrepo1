@@ -3,11 +3,6 @@ pipeline{
       environment {
           PATH = "$PATH;C:\\Users\\ShankarMadhavraoBhos\\maven\\apache-maven-3.8.6\\bin;C:\\Windows\\System32"
       }
-   
-        tools{
-            
-            maven = 'MAVEN_HOME'
-        }
         
         stages{
             stage('Checkout') {
@@ -21,7 +16,7 @@ pipeline{
             stage('Test')
             {
              echo "Test stage"
-             bat "mvn test -Dbrowser = ${params.browser} -Dplatform = ${params.platform}"
+             sh "mvn test -Dbrowser = ${params.browser} -Dplatform = ${params.platform}"
             
             }
         }
@@ -30,7 +25,7 @@ pipeline{
     post {
       always
       {
-      echo "Artifact"
+       echo "Artifact"
        archiveArtifacts artifacts: 'report/TS_01.html', followSymlinks: false
         
       
