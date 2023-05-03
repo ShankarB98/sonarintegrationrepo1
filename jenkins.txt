@@ -1,33 +1,37 @@
 pipeline{
-agent any
-stages
-{
-stage('Build')
-{
-steps{
-echo "Building test case....."
-bat "mvn clean"
+    agent any
+    parameters {
+        string defaultValue : 'Edge' , description:'select browser',name='browser',trim: false 
+        string defaultValue : 'local',description:'select platform',name='platform',trim: false
+        
+        tools{
+            
+            maven = 'MAVEN_HOME'
+        }
+        
+        stages{
+            stage('Checkout') {
+            steps{
+            echo "Checkout stage"
+            echo"${params.browser}"
+            git credentialsId: '8008faf8-9055-4db2-895b-80ff4ea9fcb2', url: 'https://github.com/ShankarB98/sonarintegrationrepo1.git'
+            }
+                
+            }
+            stage('Test')
+            {
+             echo "Test stage"
+             bat "mvn test -Dbrowser = ${params.browser} -Dplatform = ${params.platform}"
+            
+            }
+        }
+        
+    }
+    post {
+      alwasys
+      {
+      
+      }
+    }
 }
-}
-stage('Test')
-{
-steps{
-echo "Testing the code....."
-bat "mvn test"
-}
-}
-stage('Compile')
-{
-steps{
-echo "Compiling the project....."
-bat "mvn compile"
-}
-}
-stage('Deploy')
-{
-steps{
-echo "Deploying the project....."
-}
-}
-}
-}
+
