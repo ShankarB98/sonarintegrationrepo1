@@ -28,10 +28,10 @@ pipeline{
 
        
     post {
-      alwasys
+      always
       {
       echo "Artifact"
-        archiveArtifacts artifacts: 'report/TS_01.html', followSymlinks: false
+       archiveArtifacts artifacts: 'report/TS_01.html', followSymlinks: false
         
       
       
