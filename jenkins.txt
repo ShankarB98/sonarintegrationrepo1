@@ -26,12 +26,15 @@ pipeline{
             }
         }
         
-    }
     post {
       alwasys
       {
+      echo "Artifact"
+        archiveArtifacts artifacts: 'report/TS_01.html', followSymlinks: false
+        
       
       }
     }
+}
 }
 
