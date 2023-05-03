@@ -3,7 +3,7 @@ pipeline{
     parameters {
         String defaultValue : 'edge' , description:'select browser',name='browser',trim: false 
        
-        
+        }
         tools{
             
             maven = 'MAVEN_HOME'
@@ -26,7 +26,7 @@ pipeline{
             }
         }
 
-      }  
+       
     post {
       alwasys
       {
