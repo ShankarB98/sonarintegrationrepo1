@@ -6,7 +6,6 @@
     <name>KiTAP_keyword21</name>
     <description>KiTAP_keyword</description>
     <dependencies>
-        <dependency>  
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-all</artifactId>
