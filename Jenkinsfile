@@ -15,9 +15,11 @@ pipeline{
             }
             stage('test')
             {
-             echo "test stage"
-             sh "mvn test -Dbrowser = ${params.browser} -Dplatform = ${params.platform}"
-            
+                steps{
+                    
+                 echo "test stage"
+               sh "mvn test -Dbrowser = ${params.browser} -Dplatform = ${params.platform}"
+                }
             }
         }
 
